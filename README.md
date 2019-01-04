@@ -16,7 +16,6 @@ How to get a development env running
 npm install
 truffle develop
 truffle(development)> deploy
-
 ```
 
 ## Running automated tests
@@ -25,7 +24,6 @@ truffle(development)> deploy
 npm install
 truffle develop
 truffle(development)> test
-
 ```
 
 ## Built With

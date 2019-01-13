@@ -1,7 +1,7 @@
 {
-  "name": "buyerAccount",
+  "name": "buyer",
   "version": "1.0.0",
-  "description": "",
+  "description": "Dapp demo for open loyalty token concept",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vincent Chan",
   "license": "ISC",
   "dependencies": {
     "bignumber.js": "^8.0.1",
@@ -19,5 +19,6 @@
     "truffle-contract": "^3.0.6",
     "web3": "^1.0.0-beta.36",
     "zeppelin-solidity": "^1.12.0"
-  }
+  },
+  "repository": "https://github.com/vinceyc/blockchain-buyer.git"
 }

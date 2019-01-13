@@ -1,67 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import Header from "./components/header";
+import Home from "./components/home";
+import AboutUs from "./components/aboutus";
+import Checkout from "./components/checkout";
+import reducers from "./reducers";
+import "./App.css";
 
-import { drizzleConnect } from "drizzle-react";
-import { ContractData, ContractForm } from "drizzle-react-components";
+const store = createStore(reducers, applyMiddleware(thunk));
 
 class App extends Component {
-  
-  render() {
-    const { drizzleStatus, accounts } = this.props;
-
-    if (drizzleStatus.initialized) {
-      console.log(drizzleStatus);
-      return (
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title"></h1>
-            <p>
-              <strong>Total Supply</strong>
-              <ContractData
-                contract="BuyerLoyaltyToken"
-                method="totalSupply"
-                methodArgs={[{ from: accounts[0] }]}
-              />{" "}
-              <ContractData
-                contract="BuyerLoyaltyToken"
-                method="symbol"
-                hideIndicator
-              />
-            </p>
-            <p>
-              <strong>Balance</strong>
-              <ContractData
-                contract="BuyerLoyaltyToken"
-                method="balanceOf"
-                methodArgs={[accounts[0]]}
-              />
-            </p>
-            <h3>Send Tokens</h3>
-          </header>
-          <div className="App-intro">
-            <ContractForm
-              contract="BuyerLoyaltyToken"
-              method="transfer"
-              labels={["To Address", "Amount to Send"]}
-            />
-          </div>
-        </div>
-      );
+    render() {
+        return (
+            <Provider store={store}>
+                <BrowserRouter>
+                    <div>
+                        <Route path="/" component={Header} />
+                        <Switch>
+                          <Route path="/checkout" component={Checkout} />
+                          <Route path="/aboutus" component={AboutUs} />
+                          <Route path="/" component={Home} />
+                        </Switch>
+                    </div>
+                </BrowserRouter>
+            </Provider>
+        );
     }
-
-    return <div>Loading dapp...</div>;
-  }
 }
 
-const mapStateToProps = state => {
-  return {
-    accounts: state.accounts,
-    drizzleStatus: state.drizzleStatus,
-    BuyerLoyaltyToken: state.contracts.BuyerLoyaltyToken
-  };
-};
-
-const AppContainer = drizzleConnect(App, mapStateToProps);
-export default AppContainer;
+export default App;

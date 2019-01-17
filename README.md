@@ -44,4 +44,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * [Lighthouse Labs](https://www.lighthouselabs.ca) - Blockchain for Developers Course
+* [Maksim Ivanov](https://maksimivanov.com/posts/ethereum-react-dapp-tutorial) - Ethereum Distributed App With React Tutorial
+* [reactjs-estore](https://github.com/ghdna/reactjs-estore) - A simple & minimalist e-commerce accelerator store built with ReactJS, Redux, and Bootstrap 4.
 

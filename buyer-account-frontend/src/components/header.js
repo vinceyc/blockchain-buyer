@@ -1,9 +1,22 @@
-import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { Link, NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-class Header extends Component {
-	render() {
-		return (
+const Header = ({ children, cartItems, backButton, cartButton }) => {
+	const getBackButton = () => (
+	  <Link to='/' className='back-button'>
+		&lt; Back to shop
+	  </Link>
+	);
+  
+	const getCartButton = () => (
+	  <Link to='/cart' className='cart-button'>
+		Cart ({cartItems})
+	  </Link>
+	);
+  
+	return (
+	  <div className='shopping-cart-app'>
 			<header>
 				<nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 					<div className="container">
@@ -30,10 +43,23 @@ class Header extends Component {
 							</ul>
 						</nav>
 					</div>
+					<div className='header-contents'>
+						{backButton ? getBackButton() : ''}
+						{cartButton ? getCartButton() : ''}
+					</div>
 				</nav>
 			</header>
-		);
-	}
-}
+			<main className='main'>
+				{children}
+			</main>
+	  </div>
+	);
+};
+
+Header.PropTypes = {
+	cartItems: PropTypes.number.isRequired,
+	backButton: PropTypes.bool.isRequired,
+	cartButton: PropTypes.bool.isRequired,
+}; 
 
 export default Header;

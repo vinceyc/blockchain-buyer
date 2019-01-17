@@ -2,9 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class ProductThumbnail extends Component {
+
+	handleAddToCart = () => {
+		const productData = this.props.productData;
+		console.log("handleAddToCart: " + productData);
+	}
+
 	render() {
 		const productData = this.props.productData;
-		
+
 		return (
 			<div
 				key={productData.id}
@@ -25,6 +31,9 @@ class ProductThumbnail extends Component {
 						<p className="card-text">
 							{productData.sponsor}
 						</p>
+						<button type="button" className="btn btn-primary" onClick={this.handleAddToCart}>
+							Add to Cart
+						</button>
 					</div>
 					<div className="card-footer">
 						<small className="text-muted">

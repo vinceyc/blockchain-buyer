@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { getOptionsArray } from "./../function";
+import { getOptionsArray } from "./../functions";
 
 // AddItem
 const AddItem = ({ id, count, onSubmit }) => {

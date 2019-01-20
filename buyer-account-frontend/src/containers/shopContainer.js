@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-  // ShopItemsContainer
+// ShopItemsContainer
 export default connect(
 	(state) => (
 		{

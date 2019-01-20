@@ -1,7 +1,5 @@
 import { combineReducers } from "redux";
-import { actionType } from "../actions";
-
-const initialState = { items: [] };
+import { actionType } from "./../actions";
 
 const cartItem = (state, action) => {
   switch (action.type) {
@@ -76,7 +74,7 @@ const stock = (state = [], action) => {
   }
 };
 
-const products = (state = initialState, action) => {
+const products = (state = [], action) => {
 	switch (action.type) {
 		case actionType.GET_PRODUCTS:
 			return Object.assign(

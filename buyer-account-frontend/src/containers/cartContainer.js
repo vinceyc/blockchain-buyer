@@ -12,6 +12,7 @@ import Cart from "./../components/cart";
       {
         cart: state.cart.map(cartItem => {
           const item = state.stock.find(stockItem => cartItem.id === stockItem.id);
+          console.log(cartItem);
           return {
             id: cartItem.id,
             name: item.name,

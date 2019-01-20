@@ -1,6 +1,6 @@
 import React from "react";
+import propTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 const Header = ({ children, cartItems, backButton, cartButton }) => {
 	const getBackButton = () => (
@@ -18,7 +18,7 @@ const Header = ({ children, cartItems, backButton, cartButton }) => {
 	return (
 	  <div className='shopping-cart-app'>
 			<header>
-				<nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+				<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 					<div className="container">
 						<nav>
 							<ul className="navbar-nav mr-auto">
@@ -29,8 +29,8 @@ const Header = ({ children, cartItems, backButton, cartButton }) => {
 									</NavLink>
 								</li>
 								<li className="nav-item">
-									<NavLink className="nav-link" activeClassName="selected" to="/aboutus">
-										About
+									<NavLink className="nav-link" activeClassName="selected" to="/shop">
+										Shop
 										<span className="sr-only" />
 									</NavLink>
 								</li>
@@ -56,10 +56,10 @@ const Header = ({ children, cartItems, backButton, cartButton }) => {
 	);
 };
 
-Header.PropTypes = {
-	cartItems: PropTypes.number.isRequired,
-	backButton: PropTypes.bool.isRequired,
-	cartButton: PropTypes.bool.isRequired,
+Header.propTypes = {
+	cartItems: propTypes.number.isRequired,
+	backButton: propTypes.bool.isRequired,
+	cartButton: propTypes.bool.isRequired,
 }; 
 
 export default Header;

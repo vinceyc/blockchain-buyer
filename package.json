@@ -16,6 +16,7 @@
     "bignumber.js": "^8.0.1",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
+    "truffle": "^4.1.11",
     "truffle-contract": "^3.0.6",
     "web3": "^1.0.0-beta.36",
     "zeppelin-solidity": "^1.12.0"

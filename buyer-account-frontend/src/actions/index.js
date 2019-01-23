@@ -9,7 +9,8 @@ export const actionType = {
 	REMOVE_STOCK_ITEM: "REMOVE_STOCK_ITEM",
 	UPDATE_CART_ITEM: "UPDATE_CART_ITEM",
 	REMOVE_FROM_CART: "REMOVE_FROM_CART",
-	ADD_TO_CART: "ADD_TO_CART"
+	ADD_TO_CART: "ADD_TO_CART",
+	SHOW_CHECKOUT: "SHOW_CHECKOUT"
 };
 
 export function getProducts(params) {
@@ -71,6 +72,13 @@ export function removeStockItem(id, count) {
 	}
 }
 
+// showCheckout
+export function showCheckout(bool) {
+	return {
+		type: actionType.SHOW_CHECKOUT,
+		bool
+	}
+}
 
 // const cartItem = (state, action) => {
 // 	switch (action.type) {

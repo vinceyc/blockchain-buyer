@@ -74,6 +74,37 @@ const stock = (state = [], action) => {
   }
 };
 
+// checkout
+const checkout = (state = [], action) => {
+  switch (action.type) {
+    case 'SHOW_CHECKOUT':
+      return state.map(item => stockItem(item, action));
+    default:
+      return state;
+  }
+};
+
+// stockItem
+const stockItem = (state, action) => {
+  switch (action.type) {
+    case 'REMOVE_STOCK_ITEM':
+      if (state.id !== action.id) {
+        return state;
+      }
+
+      return Object.assign(
+        {},
+        state,
+        {
+          count: state.count - action.count,
+        }
+      );
+    default:
+      return state;
+  }
+};
+
+
 const products = (state = [], action) => {
 	switch (action.type) {
 		case actionType.GET_PRODUCTS:
@@ -106,7 +137,8 @@ const products = (state = [], action) => {
 const reducers = combineReducers({ 
 	products,
 	cart,
-	stock,
+  stock,
+  checkout
 })
 
 export default reducers;

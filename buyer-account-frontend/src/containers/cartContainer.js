@@ -12,7 +12,6 @@ import Cart from "./../components/cart";
       {
         cart: state.cart.map(cartItem => {
           const item = state.stock.find(stockItem => cartItem.id === stockItem.id);
-          console.log(cartItem);
           return {
             id: cartItem.id,
             name: item.name,
@@ -40,6 +39,7 @@ import Cart from "./../components/cart";
     ),
     (stateProps, dispatchProps, ownProps) => (
       Object.assign({}, ownProps, stateProps, dispatchProps, {
+        onCheckoutClick: () => dispatchProps.dispatch(showCheckout()),
         onPayClick: () =>
           stateProps.cart.map(item => {
             dispatchProps.dispatch(removeStockItem(item.id, item.count));

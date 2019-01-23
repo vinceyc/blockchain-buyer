@@ -49,9 +49,6 @@ const Header = ({ children, cartItems, backButton, cartButton }) => {
 					</div>
 				</nav>
 			</header>
-			<main className='main'>
-				{children}
-			</main>
 	  </div>
 	);
 };

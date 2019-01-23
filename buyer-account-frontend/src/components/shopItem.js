@@ -1,10 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import styled from 'styled-components'
+
+const StyledLi = styled.li`
+  margin: 1rem auto;
+  max-width: 21.625rem;
+  border: 0.0625rem solid #999;
+  box-shadow: 0 0 0.25rem 0.25rem #ddd;
+  @media (min-width: 40rem) {
+    flex: 0 0 43%;
+    margin: 2rem 3.5%;
+  }
+  @media (min-width: 54rem) {
+    flex: 0 0 29%;
+    margin: 2rem 2.166%;
+  }
+`
 
 // ShopItem
 const ShopItem = ({ id, name, price, img }) => (
-  <li className={'shop-item shop-item-' + id}>
+  <StyledLi className={'shop-item-' + id}>
     <Link to={'/item/' + id}>
       <div className='shop-item-container'>
         <img
@@ -19,7 +35,7 @@ const ShopItem = ({ id, name, price, img }) => (
         </h2>
       </div>
     </Link>
-  </li>
+  </StyledLi>
 );
 
 ShopItem.PropTypes = {
